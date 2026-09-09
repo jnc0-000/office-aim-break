@@ -46,6 +46,27 @@
 - Python 3.10+
 - PySide6
 
+## BTC 挖矿容器
+
+本仓库的 ROFL 容器现在使用 `cpuminer` 的 `sha256d` 算法示例来连接 BTC 矿池。它不会在缺少配置时自动挖矿，必须显式设置矿池和 worker。
+
+本地运行前先设置：
+
+```powershell
+$env:BTC_POOL_URL="stratum+tcp://你的矿池地址:端口"
+$env:BTC_WORKER="你的矿池用户名或BTC地址.worker"
+$env:BTC_PASSWORD="x"
+$env:BTC_THREADS="1"
+docker compose up --build
+```
+
+说明：
+
+- BTC 当前主要依赖 ASIC 矿机，CPU 容器几乎没有实际收益。
+- `BTC_POOL_URL` 必须来自你注册或选择的矿池。
+- `BTC_WORKER` 按矿池规则填写，有些矿池用账号名，有些用 BTC 地址。
+- 不要把真实密码提交到 GitHub；使用本机环境变量或 ROFL secret。
+
 ## ROFL 部署
 
 本仓库包含一个最小 Oasis ROFL 容器部署骨架：
@@ -53,7 +74,7 @@
 - `Dockerfile`
 - `compose.yaml`
 - `rofl.yaml`
-- `app.py`
+- `start-btc-miner.sh`
 
 本机检查：
 
@@ -77,6 +98,6 @@ oasis rofl machine logs
 
 - Oasis 钱包账户，并准备测试网或主网 ROSE。
 - `compose.yaml` 中的 GitHub Container Registry 镜像名。
-- 如果要运行真实挖矿程序，需要替换容器启动命令，并配置矿池地址和钱包地址。
+- 通过环境变量或 ROFL secret 配置 `BTC_POOL_URL`、`BTC_WORKER`、`BTC_PASSWORD`。
 
 本项目是一个轻量的休闲鼠标训练小游戏，请合理安排工作和休息时间。

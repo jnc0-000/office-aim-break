@@ -4,6 +4,8 @@ services:
     image: ghcr.io/jnc0-000/office-aim-break-rofl:latest
     platform: linux/amd64
     environment:
-      - APP_NAME=rofl-mining
-      - MINING_WALLET=${MINING_WALLET:-not-configured}
-      - MINING_POOL=${MINING_POOL:-not-configured}
+      - BTC_POOL_URL=${BTC_POOL_URL:-}
+      - BTC_WORKER=${BTC_WORKER:-}
+      - BTC_PASSWORD=${BTC_PASSWORD:-x}
+      - BTC_ALGO=${BTC_ALGO:-sha256d}
+      - BTC_THREADS=${BTC_THREADS:-1}
