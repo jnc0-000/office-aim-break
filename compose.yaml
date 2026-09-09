@@ -1,0 +1,9 @@
+services:
+  rofl-mining:
+    build: .
+    image: ghcr.io/YOUR_GITHUB_USERNAME/rofl-mining:latest
+    platform: linux/amd64
+    environment:
+      - APP_NAME=rofl-mining
+      - MINING_WALLET=${MINING_WALLET:-not-configured}
+      - MINING_POOL=${MINING_POOL:-not-configured}
