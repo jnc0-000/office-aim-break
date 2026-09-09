@@ -1,5 +1,11 @@
 .env
 *.orc
 __pycache__/
+*.py[cod]
 .oasis/
+.venv/
+venv/
+.idea/
+.vscode/
+*.log
 /rofl-mining/
