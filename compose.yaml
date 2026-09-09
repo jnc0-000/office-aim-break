@@ -1,7 +1,7 @@
 services:
   rofl-mining:
     build: .
-    image: ghcr.io/YOUR_GITHUB_USERNAME/rofl-mining:latest
+    image: ghcr.io/jnc0-000/office-aim-break-rofl:latest
     platform: linux/amd64
     environment:
       - APP_NAME=rofl-mining
